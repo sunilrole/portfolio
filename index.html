@@ -2,248 +2,10 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio - Sunil</title>
-
-<style>
-:root {
-  --bg: #0f172a;
-  --text: #ffffff;
-  --card: #1e293b;
-  --accent: #38bdf8;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
-
-:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 10px;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  z-index: 100;
-}
-.skip-link:focus {
-  top: 10px;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  width:auto;
-  z-index: 1000;
-  background: #020617;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  box-sizing: border-box;
-}
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo-img {
-  height: 40px;
-  width: auto;
-  display: block;
-}
-
-.site-name {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-}
-
-.nav-links ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.site-nav-main {
-  animation: fadeIn 3s ease-in-out;
-}
-
-.skill-card {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  min-height: 150px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.skill-card h3 {
-  margin: 0;
-}
-
-.skill-card:hover .skill-list,
-.skill-card:focus .skill-list,
-.skill-card:focus-within .skill-list {
-  opacity: 1;
-  max-height: 500px;
-  visibility: visible;
-}
-
-.skill-card:hover .skill-list li,
-.skill-card:focus .skill-list li {
-  transform: translateY(0);
-}
-
-.skills, .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  align-items: start;
-}
-
-.skill-list {
-  list-style: disc;
-  padding: 10px 0 0 20px; 
-  margin: 0;
-  opacity: 0;
-  max-height: 0;
-  transition: all 0.4s ease;
-  text-align: left;
-  visibility:hidden;
-}
-
-.skill-list li {
-  padding: 4px 0;
-  font-size: 14px;
-  color: #cbd5f5;
-  transform: translateY(10px);
-  transition: transform 0.3s ease;
-  list-style-position: outside; 
-}
-
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 15px;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background: var(--accent);
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);} 
-  to {opacity: 1; transform: translateY(0);} 
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.btn-primary {
-  display: inline-block;
-  text-decoration: none;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background: var(--accent);
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.btn-primary:hover {
-  background: #E4F42F;
-  transform: translateY(-3px);
-}
-
-.footer {
-  background: #020617;
-  padding: 40px 20px;
-  text-align: center;
-  border-top: 1px solid #1e293b;
-  margin-top: 60px;
-}
-
-.footer-content p {
-  color: #94a3b8;
-  margin: 10px 0;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 20px 0;
-}
-
-.social-links a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 5px 10px;
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-  transform: translateY(-2px);
-}
-
-.accessibility-note {
-  font-style: italic;
-  opacity: 0.73;
-}
-
-</style>
 </head>
 
 <body>
@@ -328,11 +90,62 @@ button {
 
 <section id="projects" class="reveal">
   <h2>Projects</h2>
-  <div class="projects">
-    <div class="card" tabindex="0">Accessibility Testing Project</div>
-    <div class="card" tabindex="0">PDF Remediation</div>
-    <div class="card" tabindex="0">Frontend Website</div>
+  <div class="card project-card reveal" tabindex="0" role="button" aria-expanded="false">
+    <div class="project-header">
+      <span class="tag">Java</span>
+      <span class="tag">Spring & Hibernate</span>
+      <span class="tag">JSP-Servlet</span>
+    </div>
+  
+    <h3>SmartBus: Real-Time Seat Reservation System</h3>
+  
+    <div class="project-body">
+      <p><strong>The Challenge:</strong> Managing real-time seat availability and preventing concurrent booking conflicts (race conditions) while maintaining a smooth user experience.</p>
+    
+      <p><strong>My Solution:</strong> Built a dynamic web application using <strong>JSP-Servlets</strong> for the frontend and <strong>Spring MVC</strong> with <strong>Annotations</strong> for the backend logic. Used <strong>Hibernate</strong> and <strong>JDBC</strong> to handle complex database transactions in MySQL.</p>
+    
+      <ul class="project-results" aria-label="Project achievements">
+        <li>✅ Implemented Session Management for secure user booking flows</li>
+        <li>✅ Integrated Hibernate ORM to simplify DAO layers and data persistence</li>
+        <li>✅ Developed dynamic UI using JSP to show real-time seat status (Available/Booked)</li>
+      </ul>
+    </div>
+
+    <div class="project-footer">
+      <span class="tech-pill">Spring Framework</span>
+      <span class="tech-pill">Hibernate</span>
+      <span class="tech-pill">JDBC</span>
+      <span class="tech-pill">JSP-Servlet</span>
+      <span class="tech-pill">MySQL</span>
+    </div>
   </div>
+
+  <div class="card project-card reveal" tabindex="0">
+  <div class="project-header">
+    <span class="tag">WCAG 2.1 Audit</span>
+    <span class="tag">PDF Remediation</span>
+  </div>
+  
+  <h3>Gov-Sync Platform Accessibility Overhaul</h3>
+  
+  <div class="project-body">
+    <p><strong>The Challenge:</strong> A public service platform was non-compliant with WCAG 2.1 AA standards, preventing users with visual impairments from accessing critical PDF documents and web forms.</p>
+    
+    <p><strong>My Solution:</strong> Conducted a full audit using NVDA/JAWS and AXE DevTools. Remediated 50+ complex PDFs (tagging, reading order) and fixed frontend ARIA landmarks.</p>
+    
+    <ul class="project-results">
+      <li>✅ Achieved 100% WCAG 2.1 AA Compliance</li>
+      <li>✅ Improved Axe DevTools Score</li>
+      <li>✅ Fixed 100+ Contrast Issues</li>
+    </ul>
+  </div>
+
+  <div class="project-footer">
+    <span class="tech-pill">NVDA</span>
+    <span class="tech-pill">Axe DevTools</span>
+    <span class="tech-pill">Acrobat Pro</span>
+  </div>
+</div>
 </section>
 
 <section id="contact" class="reveal">
