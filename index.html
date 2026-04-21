@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Sunil</title>
+
+<style>
+:root {
+  --bg: #0f172a;
+  --text: #ffffff;
+  --card: #1e293b;
+  --accent: #38bdf8;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width:auto;
+  z-index: 1000;
+  background: #020617;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.site-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.site-nav-main {
+  animation: fadeIn 3s ease-in-out;
+}
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 150px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.skill-card h3 {
+  margin: 0;
+}
+
+.skill-card:hover .skill-list,
+.skill-card:focus .skill-list,
+.skill-card:focus-within .skill-list {
+  opacity: 1;
+  max-height: 500px;
+  visibility: visible;
+}
+
+.skill-card:hover .skill-list li,
+.skill-card:focus .skill-list li {
+  transform: translateY(0);
+}
+
+.skills, .projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.skill-list {
+  list-style: disc;
+  padding: 10px 0 0 20px; 
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.4s ease;
+  text-align: left;
+  visibility:hidden;
+}
+
+.skill-list li {
+  padding: 4px 0;
+  font-size: 14px;
+  color: #cbd5f5;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+  list-style-position: outside; 
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);} 
+  to {opacity: 1; transform: translateY(0);} 
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #E4F42F;
+  transform: translateY(-3px);
+}
+
+.footer {
+  background: #020617;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  margin-top: 60px;
+}
+
+.footer-content p {
+  color: #94a3b8;
+  margin: 10px 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.social-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+  transform: translateY(-2px);
+}
+
+.accessibility-note {
+  font-style: italic;
+  opacity: 0.73;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="header-container">
+    <div class="brand">
+      <img src="image_a7ffa2fc.png" alt="Sunil Role Logo" class="logo-img">
+      <span class="site-name">Sunil Role</span>
+    </div>
+    <nav class="nav-links" aria-label="Main Navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="site-nav-main">
+  <h2>Accessibility Tester & Full Stack Developer</h2>
+  <p>Building inclusive and user-friendly digital experiences.</p>
+</section>
+
+<section id="about" class="reveal">
+  <h2>About Me</h2>
+  <p>I am an Accessibility Tester with experience in WCAG, PDF remediation, website issue fixing, and Java development.</p>
+  <a href="SunilRole_BCS_cv.pdf" download="Sunil_Role_Resume.pdf" class="btn-primary">
+  Download Resume
+  </a>
+</section>
+
+<section id="skills" class="reveal">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="card skill-card" tabindex="0" role="button" aria-expanded="false" aria-haspopup="true">
+      <h3>Programming & Backend Development</h3>
+      <ul class="skill-list">
+        <li>Java (Core & Advanced), JDBC Servlets, JSP (Introductory), Python</li>
+        <li>Spring Framework (IoC, MVC, AOP, Annotations, DAO)</li>
+        <li>Spring Boot (RESTful API Development)</li>
+      </ul>
+    </div>
+    <div class="card skill-card" tabindex="0" role="button" aria-expanded="false" aria-haspopup="true">
+      <h3>Database & ORM</h3>
+      <ul class="skill-list">
+        <li>Hibernate (Object-Relational Mapping)</li>
+        <li>MySQL</li>
+      </ul>
+    </div>
+    <div class="card skill-card" tabindex="0" role="button" aria-expanded="false" aria-haspopup="true">
+      <h3>Frameworks & Design Patterns</h3>
+      <ul class="skill-list">
+        <li>Spring MVC (Model-View-Controller)</li>
+      </ul>
+    </div>
+    <div class="card skill-card" tabindex="0" role="button" aria-expanded="false" aria-haspopup="true">
+      <h3>Mangement & Build Tools</h3>
+      <ul class="skill-list">
+        <li>Maven</li>
+        <li>Jupyter Notebook</li>
+        <li>VS Code</li>
+        <li>Eclipse IDE</li>
+        <li>POSTMAN</li>
+      </ul>
+    </div>
+    <div class="card skill-card" tabindex="0" role="button" aria-expanded="false" aria-haspopup="true">
+      <h3>Web Content Accessibility Guidelines (WCAG)</h3>
+      <ul class="skill-list">
+        <li>Experience in accessibility testing, PDF remediation, website issue fixing.</li>
+        <li>Compliance with WCAG 2.1 (A & AA) standards.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card" tabindex="0">Accessibility Testing Project</div>
+    <div class="card" tabindex="0">PDF Remediation</div>
+    <div class="card" tabindex="0">Frontend Website</div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <p>Email: sunilrole34@gmail.com</p>
+  <a href="mailto:sunilrole34@://gmail.com!" class="btn-primary">
+    Say Hello
+  </a>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Sunil Role. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/sunilrole" target="_blank" aria-label="Visit my LinkedIn profile">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/sunilrole" target="_blank" aria-label="Visit my GitHub profile">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </div>
+    <p class="accessibility-note">
+      <small>Built with accessibility in mind (WCAG 2.1, 2.2 Compliant)</small>
+    </p>
+  </div>
+</footer>
+
+</main>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  skillCards.forEach(card => {
+  card.setAttribute('aria-expanded', 'false');
+  card.setAttribute('aria-haspopup', 'true');
+  const setExpanded = (state) => card.setAttribute('aria-expanded', state);
+  card.addEventListener('mouseenter', () => setExpanded('true'));
+  card.addEventListener('mouseleave', () => setExpanded('false'));
+  card.addEventListener('focus', () => setExpanded('true'));
+  card.addEventListener('blur', () => setExpanded('false'));
+  });
+});
+
+window.addEventListener('scroll', function() {
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
